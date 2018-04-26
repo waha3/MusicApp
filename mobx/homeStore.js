@@ -9,7 +9,6 @@ export default class HomeStore {
   @action('get banner')
   getBannerAction = async () => {
     const res = await Api.getBanner();
-    console.log(res)
     runInAction(() => {
       if (res.code == FEATCH_SUCCESS) {
         this.banner = [...res.banners];

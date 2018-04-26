@@ -9,7 +9,7 @@ export default class Base extends Component {
       }
     } = this.props;
 
-    const islogin = false //await AsyncStorage.getItem('@token');
+    const islogin = await AsyncStorage.getItem('@uid');
 
     if (islogin) {
       navigate('Main')

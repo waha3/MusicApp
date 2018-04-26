@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { inject, observer } from 'mobx-react';
-import { View, StyleSheet, Text } from 'react-native';
+import { View, StyleSheet, Text, AsyncStorage } from 'react-native';
 import { WhiteSpace, WingBlank, InputItem, Button, Toast } from 'antd-mobile';
 
 const styles = StyleSheet.create({
@@ -58,9 +58,9 @@ export class LoginForm extends Component {
   }
 
   componentDidMount = () => {
+    console.log(this.mobilephoneInput)
     // this.mobilephoneInput.focus();
   }
-
 
   onButtonPress = async () => {
     const {
@@ -72,10 +72,10 @@ export class LoginForm extends Component {
       }
     } = this.props;
     const { password, mobilephone } = this.state;
-
     const res = await loginAction(mobilephone, password);
 
     if (res.code === 200) {
+      AsyncStorage.setItem('@uid', String(res.account.id));
       navigate('Home');
     } else {
       Toast.fail('登录失败')
@@ -83,7 +83,6 @@ export class LoginForm extends Component {
   }
 
   handleChange(type, value) {
-    console.log(type, value)
     switch (type) {
       case 'mobilephone':
         this.setState({
