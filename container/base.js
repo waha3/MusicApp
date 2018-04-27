@@ -12,9 +12,9 @@ export default class Base extends Component {
     const islogin = await AsyncStorage.getItem('@uid');
 
     if (islogin) {
-      navigate('Main')
+      navigate('Main');
     } else {
-      navigate('LoginButton')
+      navigate('LoginButton');
     }
   }
 
@@ -23,6 +23,6 @@ export default class Base extends Component {
       <View>
         <Text>{''}</Text>
       </View>
-    )
+    );
   }
 }

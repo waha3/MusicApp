@@ -46,8 +46,8 @@ export default class NavigatorBar extends Component {
         />
         <TabBar
           unselectedTintColor="#949494"
-          tintColor="#33A3F4"
-          barTintColor="#f0f0f0"
+          tintColor="#d43c33"
+          barTintColor="rgba(240, 240, 240, 0.8)"
         >
           {
             tabList.map((item, index) => (
