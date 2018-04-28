@@ -1,31 +1,9 @@
-import React, { Component } from 'react';
-import { View } from 'react-native';
 import { StackNavigator } from 'react-navigation';
-import { Icon } from 'antd-mobile';
 import Base from './container/base.js';
 import Home from './container/home.js';
 import NavigatorBar from './component/tabbar.js';
 import { LoginButton, LoginForm } from './container/login.js';
-
-// class HeaderLeft extends Component {
-//   componentDidMount() {
-//     console.log(this.props);
-//   }
-
-//   render() {
-//     return (
-//       <View
-//         style={{marginLeft: 20}}
-//         >
-//         <Icon
-//           onPress={() => console.log(1111)}
-//           type="left"
-//           color="#fff"
-//         />
-//       </View>
-//     );
-//   }
-// }
+import Detail from './container/detail.js';
 
 const RootStack = StackNavigator({
   Base: {
@@ -63,8 +41,10 @@ const RootStack = StackNavigator({
         color: '#fff',
         fontSize: 16,
         textAlign: 'center'
-      },
-      // headerLeft: (props) => <HeaderLeft {...props}/>
+      }
+    },
+    Detail: {
+      sreen: Detail
     }
   }
 }, {

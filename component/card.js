@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
-import { View, Image, Text } from 'react-native';
+import { View, Image, Text, TouchableHighlight } from 'react-native';
 
 export default class Card extends Component {
+  handlePress = () => {
+    const { onPressIn } = this.props;
+    onPressIn();
+  }
   render() {
     const {
       playcount,
@@ -31,15 +35,19 @@ export default class Card extends Component {
           >
             {`${~~(playcount / 10000)}万`}
           </Text>
-          <Image
-            source={{uri: uri}}
-            style={{
-              width: width,
-              height: width,
-              borderRadius: 4,
-              zIndex: 1
-            }}
-          />
+          <TouchableHighlight
+            onPress={this.handlePress}
+          >
+            <Image
+              source={{uri: uri}}
+              style={{
+                width: width,
+                height: width,
+                borderRadius: 4,
+                zIndex: 1
+              }}
+            />
+          </TouchableHighlight>
         </View>
         <View>
           <Text>{title}</Text>

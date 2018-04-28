@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { inject, observer } from 'mobx-react';
-import { View, StyleSheet, Text, AsyncStorage } from 'react-native';
+import { StyleSheet, Text, AsyncStorage } from 'react-native';
 import { WhiteSpace, WingBlank, InputItem, Button, Toast } from 'antd-mobile';
 
 const styles = StyleSheet.create({
@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
     color: '#d43c33',
     fontSize: 16
   }
-})
+});
 
 export class LoginButton extends Component {
   onButtonPressIn = () => {
@@ -58,7 +58,7 @@ export class LoginForm extends Component {
   }
 
   componentDidMount = () => {
-    console.log(this.mobilephoneInput)
+    // console.log(this.mobilephoneInput);
     // this.mobilephoneInput.focus();
   }
 
@@ -78,7 +78,7 @@ export class LoginForm extends Component {
       AsyncStorage.setItem('@uid', String(res.account.id));
       navigate('Home');
     } else {
-      Toast.fail('登录失败')
+      Toast.fail('登录失败');
     }
   }
 
@@ -87,12 +87,12 @@ export class LoginForm extends Component {
       case 'mobilephone':
         this.setState({
           mobilephone: value === '' ? null : value
-        })
+        });
         break;
       case 'password':
         this.setState({
           password: value === '' ? null : value
-        })
+        });
         break;
       default:
         break;
@@ -106,7 +106,7 @@ export class LoginForm extends Component {
         <WhiteSpace />
         <InputItem
           placeholder="手机号"
-          ref={input => this.mobilephoneInput = input}
+          ref={input => {this.mobilephoneInput = input;}}
           onChange={(value) => this.handleChange('mobilephone', value)}
         />
         <InputItem

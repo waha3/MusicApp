@@ -4,6 +4,7 @@ import { View, StatusBar } from 'react-native';
 import { TabBar } from 'antd-mobile';
 import { Text } from 'react-native';
 import Home from '../container/home.js';
+import MyMusic from '../container/mymusic.js';
 
 @inject('homeStore')
 @observer
@@ -16,9 +17,9 @@ export default class NavigatorBar extends Component {
   switchContent(index) {
     switch (index) {
       case '0':
-        return <Home />;
+        return <Home {...this.props}/>;
       case '1':
-        return <Text>111</Text>;
+        return <MyMusic />;
       case '2':
         return <Text>111</Text>;
       default:
@@ -47,11 +48,12 @@ export default class NavigatorBar extends Component {
         <TabBar
           unselectedTintColor="#949494"
           tintColor="#d43c33"
-          barTintColor="rgba(240, 240, 240, 0.8)"
+          barTintColor="#f0f0f0"
         >
           {
             tabList.map((item, index) => (
               <TabBar.Item
+                style={{backfaceVisibility: 'hidden'}}
                 title={item}
                 key={String(index)}
                 selected={selectedKey === String(index) ? true : false}

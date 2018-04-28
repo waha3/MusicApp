@@ -11,10 +11,10 @@ export default class HomeStore {
   getBannerAction = async () => {
     const res = await Api.getBanner();
     runInAction(() => {
-      if (res.code == FEATCH_SUCCESS) {
+      if (res.code === FEATCH_SUCCESS) {
         this.banner = [...res.banners];
       }
-    })
+    });
     return res;
   }
 

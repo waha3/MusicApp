@@ -33,5 +33,10 @@ export default class Api {
     const func = queryString('uid');
     return request(`${host}/detail?${func(uid)}`);
   }
+
+  static getSongList(uid) {
+    const func = queryString('uid');
+    return request(`${host}/user/playlist?${func(uid)}`);
+  }
 }
 

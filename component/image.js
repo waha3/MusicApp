@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import { Image, Dimensions } from 'react-native';
 
 const screenWidth = Dimensions.get('window').width;
@@ -23,7 +23,6 @@ export class AutoResizeImage extends Component {
 
   render() {
     const {
-      width,
       height
     } = this.state;
     const { uri } = this.props;
@@ -32,6 +31,6 @@ export class AutoResizeImage extends Component {
         source={{uri: uri}}
         style={{height: height}}
       />
-    )
+    );
   }
 }
